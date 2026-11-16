@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tramity — Guía clara, paso a paso y sin tecnicismos sobre los trámites esenciales en España."
+    />
+    <title>Tramity — Guía Práctica de Trámites en España</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Cabecera Superior Fija -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button type="button" id="brand-home-btn" class="brand" title="Ir a la página principal">
+            <div class="brand-mark">T</div>
+            <span class="brand-title">Tramity</span>
+          </button>
+          <span class="brand-subtitle">Trámites de España explicados en cristiano</span>
+        </div>
+
+        <div class="topbar-right">
+          <button type="button" id="nav-home-btn" class="btn-ghost" style="display: none">
+            ← Inicio y Fases
+          </button>
+
+          <div class="progress-pill" title="Tu progreso guardado en este navegador">
+            <span id="global-progress-text">0 de 0 leídos (0%)</span>
+            <div class="progress-bar-mini" aria-hidden="true">
+              <div id="global-progress-fill" class="progress-bar-mini-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <button type="button" id="reset-progress-btn" class="btn-reset" style="display: none">
+            Reiniciar
+          </button>
+
+          <!-- Botón Dinámico de Tema Claro / Oscuro -->
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="theme-toggle-btn"
+            aria-label="Cambiar entre modo claro y oscuro"
+            title="Cambiar entre tema claro y oscuro"
+          >
+            <span class="theme-toggle-track">
+              <span class="theme-icon sun-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+              </span>
+              <span class="theme-icon moon-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </span>
+              <span class="theme-toggle-thumb"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <!-- VISTA 1: PÁGINA PRINCIPAL (PORTADA Y FASES) -->
+      <main id="home-view" class="home-view">
+        <div class="home-container">
+          <!-- Hero / Bienvenida -->
+          <section class="hero-box">
+            <div class="hero-content">
+              <span class="hero-eyebrow">Guía abierta de trámites en España</span>
+              <h1 class="hero-title">
+                Todo lo que necesitas saber para gestionar tus papeles sin perderte.
+              </h1>
+              <p class="hero-description">
+                Explicaciones claras y paso a paso sobre identidad digital, sanidad, contratos de trabajo, impuestos, alquiler y tráfico. Con los errores típicos que debes evitar, enlaces directos a cada sede oficial y vídeo-tutoriales.
+              </p>
+
+              <!-- Acción principal de la cabecera -->
+              <div class="hero-search-row">
+                <button type="button" id="hero-start-btn" class="btn-primary">
+                  Empieza a aprender →
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Barra de Herramientas Prácticas y Filtros por Situación Vital -->
+          <section class="board-controls-bar" aria-label="Filtros por situación y herramientas rápidas">
+            <div class="profile-filters-group">
+              <span class="controls-label">📌 Filtrar por tu situación:</span>
+              <div id="profile-filters" class="profile-filters-list">
+                <button type="button" class="profile-filter-chip active" data-profile="all">
+                  Todos los trámites (54)
+                </button>
+                <button type="button" class="profile-filter-chip" data-profile="primer-empleo">
+                  💼 Primer trabajo / Paro
+                </button>
+                <button type="button" class="profile-filter-chip" data-profile="independizarse">
+                  🏠 Alquilar o comprar piso
+                </button>
+                <button type="button" class="profile-filter-chip" data-profile="viajar-ue">
+                  🇪🇺 Viajar / Vivir en la UE
+                </button>
+                <button type="button" class="profile-filter-chip" data-profile="viajar-mundo">
+                  🌎 Viajar Fuera de la UE
+                </button>
+                <button type="button" class="profile-filter-chip" data-profile="estudios-becas">
+                  🎓 Estudios y Becas
+                </button>
+                <button type="button" class="profile-filter-chip" data-profile="coche-papeles">
+                  🚗 Coche, DGT e Impuestos
+                </button>
+                <button type="button" class="profile-filter-chip" data-profile="autonomo-urgencias">
+                  🚨 Autónomos, Banca y Urgencias
+                </button>
+              </div>
+            </div>
+
+            <div class="quick-tools-group">
+              <span class="controls-label">🧰 Utilidades interactivas:</span>
+              <div class="quick-tools-buttons">
+                <button type="button" class="tool-postit-btn" data-open-tool="wizard">
+                  🧭 ¿Por dónde empiezo?
+                </button>
+                <button type="button" class="tool-postit-btn" data-open-tool="calculator">
+                  🧮 Calculadora Nómina / Factura
+                </button>
+                <button type="button" class="tool-postit-btn" data-open-tool="rental">
+                  🏠 Checklist Visita de Piso
+                </button>
+                <button type="button" class="tool-postit-btn" data-open-tool="glossary">
+                  📖 Diccionario Burocrático
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Panel Desplegable de Herramientas Interactivas (Asistente, Calculadora, Checklist Alquiler, Glosario) -->
+          <section id="interactive-tool-panel" class="interactive-tool-panel" style="display: none" aria-live="polite"></section>
+
+          <!-- Tablón Personal: Mis Trámites Fijados con Chincheta -->
+          <section id="pinned-board-section" class="pinned-board-section" style="display: none" aria-label="Mis trámites fijados">
+            <div class="pinned-board-header">
+              <div>
+                <h2 class="pinned-board-title">📌 Mis trámites fijados en el corcho (Pendientes)</h2>
+                <p class="pinned-board-subtitle">
+                  Tus gestiones prioritarias guardadas a mano para resolver esta semana.
+                </p>
+              </div>
+              <button type="button" id="clear-pins-btn" class="btn-ghost-sm">
+                Quitar todos los fijados
+              </button>
+            </div>
+            <div id="pinned-lessons-grid" class="pinned-lessons-grid"></div>
+          </section>
+
+          <!-- Bloques de Fases / Categorías -->
+          <section class="phases-section" aria-label="Fases del temario">
+            <div class="phases-section-header">
+              <div>
+                <h2 class="section-heading">Explora los trámites por Fases</h2>
+                <p id="phases-section-subheading" class="section-subheading">
+                  Puedes seguir el orden recomendado desde la Fase 1 o entrar directamente al trámite que necesites resolver hoy.
+                </p>
+              </div>
+            </div>
+
+            <div id="phases-grid" class="phases-grid"></div>
+          </section>
+        </div>
+      </main>
+
+      <!-- VISTA 2: VISOR DE LECCIONES (CON ÍNDICE LATERAL) -->
+      <div id="reader-view" class="workspace" style="display: none">
+        <!-- Fondo oscuro para menú móvil -->
+        <div id="mobile-backdrop" class="mobile-backdrop"></div>
+
+        <!-- Índice Lateral por Fases -->
+        <aside id="sidebar-nav" class="sidebar" aria-label="Temario de trámites">
+          <button type="button" id="sidebar-back-home" class="sidebar-back-btn">
+            ← Volver a la portada de Fases
+          </button>
+
+          <div id="curriculum-tree"></div>
+        </aside>
+
+        <!-- Visor Central del Trámite -->
+        <main id="content-viewer" class="content-viewer">
+          <div id="lesson-mount"></div>
+        </main>
+
+        <!-- Barra Inferior Táctil (Solo Móvil dentro del visor) -->
+        <nav class="mobile-nav-bar" aria-label="Menú inferior móvil">
+          <button type="button" id="mobile-home-btn" class="mobile-tab-btn">
+            <span>🏠 Fases</span>
+          </button>
+
+          <button type="button" id="mobile-menu-toggle" class="mobile-tab-btn primary">
+            <span>☰ Índice de temas</span>
+            <small id="mobile-progress-label">0% completado</small>
+          </button>
+
+          <button type="button" id="mobile-next-btn" class="mobile-tab-btn">
+            <span>Siguiente →</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
